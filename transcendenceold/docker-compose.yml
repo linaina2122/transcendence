@@ -1,0 +1,69 @@
+version: '3.9'
+services:
+  back-end:
+    build: ./back-end
+    container_name: back-end
+    image: back-end:back-end
+    restart: unless-stopped
+    command: "bash /app/script/script.sh"
+    env_file:
+      - /Users/$USER/Desktop/data_transcendence/env_files/.env_back_end
+    depends_on:
+      - dev-db
+    ports:
+      - "3333:3333"
+    volumes:
+      - avatars-volume:/app/public/avatars
+      - qrcodes-volume:/app/public/qrcodes
+    networks:
+      - transcendence
+  dev-db:
+    image: postgres:latest
+    container_name: postgres
+    ports:
+      - 5434:5432
+    restart: unless-stopped
+    env_file:
+      - /Users/$USER/Desktop/data_transcendence/env_files/.env_db
+    volumes:
+      - db-volume:/var/lib/postgresql/data
+    networks:
+      - transcendence
+  front-end:
+    build: ./front-end
+    container_name: front-end
+    image: front-end:front-end
+    restart: unless-stopped
+    depends_on:
+      - back-end
+      - dev-db
+    ports:
+      - "3000:3000"
+    env_file:
+      - /Users/$USER/Desktop/data_transcendence/env_files/.env_front_end
+    networks:
+      - transcendence
+
+volumes:
+  db-volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: /Users/$USER/Desktop/data_transcendence/data/db
+      o:  bind
+  avatars-volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: /Users/$USER/Desktop/data_transcendence/data/images/avatars
+      o:  bind
+  qrcodes-volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: /Users/$USER/Desktop/data_transcendence/data/images/qrcodes_users
+      o:  bind
+
+networks:
+  transcendence:
+    name: transcendence

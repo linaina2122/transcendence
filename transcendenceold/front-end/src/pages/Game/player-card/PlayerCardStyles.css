@@ -1,0 +1,197 @@
+.player-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  overflow: hidden;
+  width: 400px;
+}
+
+/* OPPONENT CARD */
+.player-card[data-type="player-2"] {
+  color: #111;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.player-card[data-type="player-2"] .player-card-header .player-card-image {
+  border-color: #111;
+}
+
+/* RESULT */
+.player-card[data-winner="true"] {
+  position: relative;
+  /* box-shadow: rgba(244, 185, 70, 0.1) 0px 8px 24px,
+    rgba(244, 185, 70, 0.1) 0px 16px 56px, rgba(244, 185, 70, 0.1) 0px 24px 80px; */
+  box-shadow: rgba(244, 185, 70, 0.56) 0px 22px 70px 4px;
+}
+
+.player-card[data-winner="true"]::before {
+  content: url("../../../../public/images/medal-winner.svg");
+  position: absolute;
+  z-index: 99;
+  top: 0;
+  /* right: 1rem; */
+  right: 0;
+  width: 30%;
+  height: 30%;
+  max-width: 138px;
+}
+
+.player-card[data-winner="false"] {
+  filter: grayscale(100%) contrast(80%) sepia(10%);
+}
+
+/* .player-card[data-winner="false"]::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+} */
+
+.player-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+.player-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.player-card-header .player-card-image {
+  width: 150px;
+  height: 150px;
+  border: 5px solid #fff;
+  border-radius: 100vw;
+  overflow: hidden;
+}
+
+.player-card-header .player-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.player-card-header .player-infos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.player-card-header .player-infos .player-fullname {
+  font-size: var(--size-500);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.player-card-header .player-infos .player-username {
+  margin: auto;
+  padding: 0.125rem 0.5rem;
+  width: max-content;
+  font-size: var(--size-300);
+  font-weight: 600;
+  text-transform: capitalize;
+  color: lightgray;
+  background-color: #111;
+  border-radius: 100vw;
+}
+
+.player-card-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  /* padding-top: 1rem; */
+  /* border-top: 1px solid lightgray; */
+}
+
+.player-card-body .player-stats {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  width: 100%;
+}
+
+.player-card-body .player-stats .stats-infos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-inline: 1rem;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.player-card-body .player-stats .stats-infos:nth-child(even) {
+  border: 1px solid #a0a0a0;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.player-card-body .player-stats .stats-infos .stats-number {
+  font-size: var(--size-500);
+  font-weight: 700;
+}
+
+.player-card-body .player-stats .stats-infos .stats-title {
+  color: #a0a0a0;
+  font-weight: 400;
+}
+
+.player-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--size-500);
+  text-transform: uppercase;
+  gap: 0.5rem;
+  border-top: 1px solid lightgray;
+  padding-top: 1rem;
+}
+
+.player-card-footer .player-score {
+  font-weight: 700;
+}
+
+@media (max-width: 1060px) {
+  .player-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .player-card-header {
+    align-self: flex-start;
+    flex-direction: row;
+  }
+
+  .player-card-header .player-card-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .player-card-header .player-infos .player-fullname {
+    /* font-size: var(--size-500); */
+  }
+
+  .player-card-header .player-infos .player-username {
+    margin: 0;
+  }
+
+  .player-card-body .player-stats {
+    /* padding-top: 0; */
+  }
+}

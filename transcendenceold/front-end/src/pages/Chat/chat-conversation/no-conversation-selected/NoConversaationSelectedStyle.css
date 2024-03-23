@@ -1,0 +1,20 @@
+
+    .chat-conversation-empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
+        margin: auto;
+        color: #fff;
+        height: 100%;
+      }
+      
+      .chat-conversation-empty p {
+        color: #cecece;
+      }
+      .chat-conversation-empty svg {
+        fill: #fff;
+        width: 5rem;
+        aspect-ratio: 1/1;
+      }

@@ -1,0 +1,111 @@
+.members-role-cards {
+  grid-template-columns: repeat(auto-fill, minmax(358px, 1fr));
+}
+
+.select2-selection__choice {
+  color: #fff !important;
+  background-color: #3a3b3c !important;
+}
+
+.group-settings-header form .actions-buttons {
+  /* grid-column: span 2;
+  grid-row: span 2; */
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.group-settings-header input[type="text"],
+.group-settings-header input[type="password"],
+.group-settings-header select {
+  padding: 0.125em 0.8em;
+  border-radius: 10px;
+  border: 1px solid #a0a0a0;
+  background-color: #fff;
+}
+
+.group-settings-header form input[type="submit"] {
+  /* justify-self: flex-start; */
+  margin-left: auto;
+  width: max-content;
+}
+
+form .form-control {
+  /* justify-content: center; */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+  flex: 1;
+
+}
+
+.form-control input,
+.form-control select {
+  flex-grow: 1;
+  width: 100%;
+  min-width: 100px;
+}
+
+.form-control label {
+  justify-self: flex-start;
+  width: 100%;
+  min-width: 90px;
+  color: lightgray;
+}
+
+.form-control-admins label{
+  /* flex-wrap: nowrap; */
+  /* flex-shrink: 1; */
+  /* width: 90px; */
+}
+
+.form-control-admins{
+  /* width: 100%; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* flex-wrap: nowrap; */
+  /* flex-shrink: 1;
+  width: 90px; */
+  /* width: 100%; */
+}
+
+
+.form-control-admins label{
+  /* width: max-content; */
+}
+.form-control-admins select{
+  /* background-color: red; */
+  flex-grow: 1;
+  width: 100%;
+}
+
+
+form .form-inputs {
+  /* display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1rem; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+form .form-inputs .form-control {
+  /* flex: 1; */
+}
+
+form .form-inputs .form-control input {
+}
+
+form .actions-buttons {
+  /* grid-column: span 2;
+  grid-row: span 2; */
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+form input[type="submit"] {
+  /* justify-self: flex-start; */
+  margin-left: auto;
+  width: max-content;
+}

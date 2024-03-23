@@ -1,0 +1,159 @@
+.profile-settings{
+    display: flex;
+    margin-top: 5rem;
+    min-height:var(--within-viewport);
+    /* margin-top: 5.25rem; */
+  }
+  
+  .profile-settings .profile-settings-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-settings .profile-settings-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    width: 100%;
+  }
+  
+  .profile-settings .profile-settings-body form .actions-buttons {
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+  
+  .profile-settings .profile-settings-body input[type="text"],
+  .profile-settings .profile-settings-body input[type="email"] {
+    padding: 0.125em 0.8em;
+    border-radius: 10px;
+    border: 1px solid #a0a0a0;
+    background-color: #fff;
+  }
+  
+  .profile-settings .profile-settings-body form input[type="submit"] {
+    /* justify-self: flex-start; */
+    margin-left: auto;
+    width: max-content;
+  }
+  
+  .profile-settings form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+  }
+  
+  .profile-settings .profile-image-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    /* margin: auto; */
+    width: 100%;
+    flex: 1;
+    /* min-width: 500px; */
+    /* width: 50%; */
+  }
+  
+  .profile-settings .profile-inputs-section{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 1rem;
+    width: 100%;
+    /* width: 50%; */
+  }
+  
+  .profile-settings form .form-control {
+    /* justify-content: center; */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    width: 100%;
+    flex: 1;
+  
+  }
+  
+  
+  .profile-settings .form-control input{
+    flex-grow: 1;
+    width: 100%;
+    min-width: 100px;
+  }
+  
+  .profile-settings .form-control label {
+    justify-self: flex-start;
+    width: 100%;
+    min-width: 90px;
+    color: lightgray;
+  }
+  
+  
+  .profile-settings form .form-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    /* width: 50%; */
+    /* min-width: 300px; */
+  }
+  
+  .profile-settings form .actions-buttons {
+    /* grid-column: span 2;
+    grid-row: span 2; */
+    flex: 1;
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+  
+  .profile-settings form input[type="submit"] {
+    /* justify-self: flex-start; */
+    margin-left: auto;
+    width: max-content;
+  }
+  
+  .profile-settings-title {
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #a0a0a0;
+    margin-bottom: 2rem;
+  }
+  
+  
+  
+  /* DROPZONE STYLE */
+  .dropzone-field{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding-inline: 2rem;
+    width: 100%;
+    background-color: rgba(255, 255, 255, .2);
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 8rem;
+  }
+  
+  .user-avatar{
+    margin: auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 100vw;
+    object-fit: cover;
+    background-color: rgba(255, 255, 255, .2);
+    border: 5px solid lightgrey;
+  }
+  
+  @media(min-width: 895px){
+    .profile-settings{
+      margin-bottom: 6rem;
+    }
+  
+    .profile-settings form{
+      flex-direction: row;
+    }
+  }

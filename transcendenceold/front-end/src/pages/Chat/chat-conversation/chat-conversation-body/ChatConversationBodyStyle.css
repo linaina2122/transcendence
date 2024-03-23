@@ -1,0 +1,15 @@
+.chat-conversation-person .chat-conversation-body,
+.chat-conversation-group .chat-conversation-body {
+  flex-grow: 1;
+  /* margin-block: 1rem; */
+  /* height: 100%; */
+  max-height: calc(635px - 2rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.chat-message-text {
+  max-width: 552.766px;
+  height: auto;
+  overflow-wrap: break-word;
+}

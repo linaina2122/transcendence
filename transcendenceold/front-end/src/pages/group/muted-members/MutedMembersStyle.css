@@ -1,0 +1,47 @@
+.group-settings,
+.profile-settings,
+.muted-members,
+.members-role {
+  margin-block: 1rem;
+  background-color: #3a3b3c;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  /* width: 100%; */
+}
+
+.muted-members,
+.members-role {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  width: 100%;
+}
+
+
+.group-settings-title,
+.profile-settings-title,
+.muted-members-title {
+  font-size: var(--size-500);
+  margin-bottom: 1rem;
+}
+
+.muted-members-cards,
+.members-role-cards {
+  /* padding-inline: 0.5rem; */
+  padding: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* background-color: red; */
+}
+
+.members-role-cards {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) ; /* khasseha class mere bash mat3aytsh 3la style dyal muted f member cards */
+}
+
+.muted-members-cards.cards-content {
+  border-top: 2px solid #a0a0a0;
+}

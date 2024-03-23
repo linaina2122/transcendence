@@ -1,0 +1,42 @@
+.chat-conversation-person .chat-conversation-footer,
+.chat-conversation-group .chat-conversation-footer {
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  /* height: 3.5rem; */
+  padding-inline: 0.5rem;
+  /* background-color: #f1f1f1; */
+  border-radius: 100vw;
+}
+/* .chat-conversation-person .chat-conversation-footer {
+  }
+   */
+
+.chat-conversation-person
+  .chat-conversation-footer
+  .chat-conversation-footer-input,
+.chat-conversation-group
+  .chat-conversation-footer
+  .chat-conversation-footer-input {
+  resize: none;
+  width: 100%;
+  padding-inline: 1rem;
+  outline: none;
+  border: none;
+  background-color: lightgray;
+  border-radius: 0.5rem;
+  /* height: auto; */
+  /* min-height: 45px; */
+  max-height: 120px;
+}
+
+.chat-conversation-person .chat-conversation-footer button,
+.chat-conversation-group .chat-conversation-footer button {
+  align-self: flex-start;
+  gap: 0.5rem;
+  font-size: var(--size-400);
+  padding-inline: 1em;
+  border-radius: 0.5rem;
+}

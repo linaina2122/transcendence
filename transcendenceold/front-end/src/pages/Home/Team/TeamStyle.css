@@ -1,0 +1,139 @@
+/* TEAMS */
+.teams {
+  position: relative;
+  margin-bottom: 5rem;
+  padding-block: 5rem;
+  /* background-image: url("/images/download.jfif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+
+.teams-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.member-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 400px;
+  height: 350px;
+  color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.member-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 99999;
+  width: 110px;
+  height: 110px;
+  transform: translate(-50%, -50%);
+  background-color: #e0eafc;
+  border-radius: 100vw;
+  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
+}
+
+.member-img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  z-index: 99999;
+  border-radius: 100vw;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+.member-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.member-card-body {
+  /* padding-top: 3rem; */
+}
+
+.member-card-body .member-fullname {
+  font-size: var(--size-500);
+  font-weight: 700;
+  text-align: center;
+  height: 80px;
+}
+
+.member-card-body .member-username {
+  text-align: center;
+  font-weight: 500;
+  background-color: var(--color-accent-400);
+  width: max-content;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  border-radius: 100vw;
+}
+.member-card-body .member-mission {
+  padding-block: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.member-card-footer {
+  /* justify-self: flex-end; */
+}
+.member-card-footer .member-social-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+
+.member-card-footer .member-social-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+
+.member-card-footer .member-social-media a {
+  color: #fff;
+  transition: scale 250ms;
+}
+
+.member-card-footer .member-social-media a:hover {
+  scale: 1.05;
+}
+
+.member-card-footer .member-social-media a .company-logo {
+  color: #fff;
+  width: 32px;
+  height: 32px;
+}
+
+.mySwiper {
+  padding-top: 3rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.swiper-wrapper {
+  padding-block: 1rem;
+  margin-bottom: 4rem;
+}

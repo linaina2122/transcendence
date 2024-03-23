@@ -1,0 +1,77 @@
+.card-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .card-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background-color: #e4e4e5;
+    border-radius: 100vw;
+  }
+  
+  .card-button:hover {
+    scale: 1.125;
+  }
+  
+  .card-button a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+  }
+  
+  .card-button svg {
+    width: max-content;
+    fill: #4a4a4c;
+  } 
+  
+  /* TOOLTIP */
+/* Apply basic styles to the tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+    z-index: 9999;
+  }
+  
+  /* Hide the tooltip text by default */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    max-width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding-inline: 5px;
+    position: absolute;
+    /* z-index: 9999; */
+    top: 100%;
+    right: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    transform: translateX(50%);
+    font-size: var(--size-300);
+  }
+  
+  /* Make the tooltip visible on hover */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .card svg {
+    fill: #4a4a4c;
+    /* color: #fff; */
+    width: 1rem;
+    height: 1rem;
+  }
+  

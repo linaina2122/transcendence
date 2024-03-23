@@ -1,0 +1,44 @@
+.cards-content {
+  border: none;
+}
+
+.role {
+  margin-top: 2rem;
+}
+
+.role-title {
+  position: relative;
+  margin-left: 1rem;
+  width: 100%;
+  color: #3a3b3c;
+  font-size: var(--size-400);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.role-title::before {
+  content: "";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  width: 90%;
+  max-width: calc(100% - 116.8px);
+  height: 0.125rem;
+  background-color: #a0a0a0;
+  border-radius: 100vw;
+  transform: translateY(-50%);
+}
+
+.role-title::after {
+  content: "";
+  position: absolute;
+  left: -1rem;
+  top: 0;
+  width: 10%;
+  min-width: 116.8px;
+  height: 100%;
+  background-color: #e4e6ea;
+  border-radius: 100vw;
+  z-index: -1;
+  /* transform: translateY(-50%); */
+}

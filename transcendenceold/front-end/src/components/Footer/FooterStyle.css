@@ -1,0 +1,11 @@
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--size-500);
+    padding-block: 1rem;
+    background-color: #111;
+    color: #fff;
+    font-size: var(--size-400);
+}
+  

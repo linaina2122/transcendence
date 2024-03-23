@@ -1,0 +1,85 @@
+.section-players {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: var(--within-viewport);
+}
+
+.section-players-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  height: 100%;
+}
+
+.versus {
+  width: 150px;
+  height: 150px;
+}
+
+.versus svg {
+  width: 100%;
+  height: 100%;
+  fill: transparent;
+}
+
+.versus svg path {
+  stroke: #111;
+  stroke-width: 3;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 2s linear forwards, scale 1s infinite 3s alternate;
+  transform-origin: center;
+}
+
+.versus svg.filled {
+  fill: #111;
+  animation: fill 3s linear forwards;
+}
+
+.players-buttons {
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.players-buttons .action-button{
+  padding: 1em 1.5em !important;
+  font-size: var(--font-size-600) !important;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fill {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: #111;
+  }
+}
+
+@keyframes scale {
+  0% {
+    fill: var(--color-primary-400);
+    transform: scale(1);
+  }
+  100% {
+    fill: #111;
+    transform: scale(1.03);
+  }
+}
+
+@media (max-width: 1060px) {
+  .section-players-content {
+    flex-direction: column;
+  }
+}

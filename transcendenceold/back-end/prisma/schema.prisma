@@ -1,0 +1,187 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// datasource db {
+//   provider = "postgresql"
+//   url      = "postgresql://postgres:123@localhost:5434/nest?schema=public"
+// }
+
+model User {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  username            String  @unique
+  usernameOld         String  @unique
+  email               String  @unique
+  fullName            String
+  avatarUrl           String
+  isOnLine            Boolean
+  Status              String
+  accessToken         String
+  refreshToken        String
+  twoFactor           Boolean
+  towFactorToRedirect Boolean
+  qrCodeFileName      String
+  towFactorSecret     String
+  levelGame           Int
+
+  sentMessages     DirectMessage[] @relation("SentMessages")
+  receivedMessages DirectMessage[] @relation("ReceivedMessages")
+
+  rooms            ChatRoom[]    @relation("UserRooms")
+  outgoingMessages RoomMessage[] @relation("SentMessages")
+
+  memberships Member[]     @relation("UserMemberships")
+  mutedUsers  MutedUsers[] @relation("MutedUsers")
+  banedUsers  BanedUsers[] @relation("BanedUsers")
+  adminsUsers Admins[]     @relation("Admins")
+
+  // Relation to BlockedUsers as the user who is blocking
+  blocking BlockedUsers[] @relation("Blocking")
+
+  // Relation to BlockedUsers as the user who is blocked
+  blocked BlockedUsers[] @relation("Blocked")
+
+  // Relationships
+  friendshipsAsUserOne Friendship[] @relation("UserOneRelation")
+  friendshipsAsUserTwo Friendship[] @relation("UserTwoRelation")
+}
+
+model HistoryGame {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+
+  winnerId      String
+  loserId       String
+  startTimeGame DateTime
+  endTimeGame   DateTime
+  scoreWinner   Int
+  scoreLoser    Int
+}
+
+model ChatRoom {
+  id          String  @id @default(cuid())
+  roomName    String
+  ownerID     String // Foreign key to User's id
+  isProtected Boolean
+  password    String?
+  roomType    String
+  image       String
+
+  // Relation with User - Every chatRoom belongs to one User (owner)
+  owner    User          @relation("UserRooms", fields: [ownerID], references: [id])
+  messages RoomMessage[] @relation("RoomMessages")
+
+  members    Member[]     @relation("RoomMemberships")
+  mutedUsers MutedUsers[] @relation("RoomMutedUsers") // Relation to MutedUsers
+  banedUsers BanedUsers[] @relation("RoomBanedUsers") // Relation to MutedUsers
+  AdminUsers Admins[]     @relation("RoomAdmins") // Relation to MutedUsers
+}
+
+// id                Int            @id @default(autoincrement())
+model Member {
+  userId     String
+  chatRoomId String
+  joinedAt   DateTime @default(now()) // New 'joinedAt' field
+  createdAt  DateTime @default(now())
+  status     Boolean  @default(true)
+
+  // Relation with User and chatRoom
+  user     User     @relation("UserMemberships", fields: [userId], references: [id])
+  chatRoom ChatRoom @relation("RoomMemberships", fields: [chatRoomId], references: [id])
+
+  @@unique([userId, chatRoomId])
+}
+
+model MutedUsers {
+  id        String   @id @default(cuid())
+  userId    String // Foreign key to User's id
+  roomId    String // Foreign key to ChatRoom's id
+  createdAt DateTime @default(now())
+
+  // Relations
+  user     User     @relation("MutedUsers", fields: [userId], references: [id])
+  chatRoom ChatRoom @relation("RoomMutedUsers", fields: [roomId], references: [id])
+
+  @@unique([userId, roomId])
+}
+
+model BanedUsers {
+  id        String   @id @default(cuid())
+  userId    String // Foreign key to User's id
+  roomId    String // Foreign key to ChatRoom's id
+  createdAt DateTime @default(now())
+
+  // Relations
+  user     User     @relation("BanedUsers", fields: [userId], references: [id])
+  chatRoom ChatRoom @relation("RoomBanedUsers", fields: [roomId], references: [id])
+
+  @@unique([userId, roomId])
+}
+
+model Admins {
+  id        String   @id @default(cuid())
+  userId    String // Foreign key to User's id
+  roomId    String // Foreign key to ChatRoom's id
+  createdAt DateTime @default(now())
+
+  // Relations
+  user     User     @relation("Admins", fields: [userId], references: [id])
+  chatRoom ChatRoom @relation("RoomAdmins", fields: [roomId], references: [id])
+
+  @@unique([userId, roomId])
+}
+
+model RoomMessage {
+  messageId String   @id @default(cuid())
+  senderId  String // Foreign key to User's id
+  roomId    String // Foreign key to ChatRoom's id
+  createdAt DateTime @default(now())
+  message   String
+
+  // Relations
+  sender User     @relation("SentMessages", fields: [senderId], references: [id])
+  room   ChatRoom @relation("RoomMessages", fields: [roomId], references: [id])
+}
+
+model DirectMessage {
+  id         String   @id @default(cuid())
+  createdAt  DateTime @default(now())
+  message    String
+  sender     User     @relation("SentMessages", fields: [senderId], references: [id])
+  receiver   User     @relation("ReceivedMessages", fields: [receiverId], references: [id])
+  readed     Boolean
+  senderId   String
+  receiverId String
+}
+
+model Friendship {
+  id      String @id @default(cuid())
+  userOne String
+  userTwo String
+
+  userOneRelation User @relation("UserOneRelation", fields: [userOne], references: [id])
+  userTwoRelation User @relation("UserTwoRelation", fields: [userTwo], references: [id])
+
+  @@unique([userOne, userTwo])
+}
+
+model BlockedUsers {
+  id           String @id @default(cuid())
+  // Relation to User who is blocking
+  blockingUser User   @relation("Blocking", fields: [blockingId], references: [id])
+  blockingId   String
+  // Relation to User who is blocked
+  blockedUser  User   @relation("Blocked", fields: [blockedId], references: [id])
+  blockedId    String
+}

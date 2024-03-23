@@ -1,0 +1,8 @@
+.profile {
+    min-height: var(--within-viewport);
+}
+
+.profile-content {
+    margin-top: 8rem;
+}
+  

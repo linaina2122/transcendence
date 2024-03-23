@@ -1,0 +1,35 @@
+.two-factor-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .two-factor-inputs {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .two-factor-inputs .two-factor-input {
+    width: var(--size-700);
+    height: var(--size-700);
+    padding: 1rem;
+    /* width: ; */
+    font-size: var(--size-500);
+    font-weight: bold;
+    /* padding: 0.125em 0.8em; */
+    border-radius: 10px;
+    border: 1px solid #a0a0a0;
+    background-color: #fff;
+  }
+  
+  .two-factor-inputs .two-factor-input.empty-input {
+    background-color: lightgray;
+  }
+  
+  .two-factor-form .actions-buttons {
+    width: 100%;
+  }
+  
+  .two-factor-form .actions-buttons .action-button {
+    width: 100%;
+  }  
